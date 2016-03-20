@@ -58,7 +58,7 @@ image = Image.new([
 ])
 
 checkImage = image.check
-checkImage.blur(2)
+Image.blur(2)
 #checkImage.output_image
 
 
