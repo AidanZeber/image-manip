@@ -3,18 +3,18 @@ class Image
     @image = image
   end
 
-  def check 
+def check
     ones = []
-    @image.each_with_index do |row, row_index|
-      row.each_with_index do |pixel, column_index|
-        if pixel == 1
-          ones.push([row_index, column_index])
-        end
+      @image.each_with_index do |row, row_index|
+        row.each_with_index do |pixel, col_index|
+          if pixel == 1
+            ones.push([row_index, col_index])
+          end
       end
-    end
-    return ones
-  end
-
+      end
+      return ones
+   end
+  
   def transform(ones)
     ones.each do |row_index, column_index|
       update_cell(row_index+1, column_index,1)
@@ -26,7 +26,7 @@ class Image
   end
 
   def blur(n)
-    n.times do 
+    @image.each_with_index do |x|
       transform(ones)
     end
   end
@@ -52,6 +52,13 @@ image = Image.new([
   [0,0,0,0]
 ])
 
-transformImage = image.check
-transformImage.output_image
-#transformImage.blur(2)
+checkImage = image.check
+puts checkImage
+checkImage.blur(2)
+checkImage.output_image
+
+
+
+
+
+
