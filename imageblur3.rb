@@ -26,7 +26,6 @@ class Image
       update_cell(row_index,col_index-1, 1)
       update_cell(row_index-1, col_index,1)
     end
-    return Image.new(@image)
   end
 
   def blur(n)
@@ -57,9 +56,7 @@ image = Image.new([
   [0, 0, 0, 0]
 ])
 
-checkImage = image.check
-Image.blur(2)
-#checkImage.output_image
-
+image.blur(2)
+image.output_image
 
 
