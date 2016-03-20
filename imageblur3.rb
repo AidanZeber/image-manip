@@ -21,17 +21,17 @@ class Image
   #the update cell method takes these arguments and the update to the surrounding cells based on the +1, -1. This causes the image to "blur". 
   def transform(one_index)
     one_index.each do |row_index, col_index|
-    update_cell(row_index+1, col_index,1)
-    update_cell(row_index,col_index+1, 1)
-    update_cell(row_index,col_index-1, 1)
-    update_cell(row_index-1, col_index,1)
+      update_cell(row_index+1, col_index,1)
+      update_cell(row_index,col_index+1, 1)
+      update_cell(row_index,col_index-1, 1)
+      update_cell(row_index-1, col_index,1)
+    end
+    return Image.new(@image)
   end
-  return Image.new(@image)
-end
 
   def blur(n)
     n.times do 
-      transform(one_index)
+      transform(check)
     end
   end
 
@@ -58,8 +58,8 @@ image = Image.new([
 ])
 
 checkImage = image.check
-#checkImage.blur(2)
-checkImage.output_image
+checkImage.blur(2)
+#checkImage.output_image
 
 
 
