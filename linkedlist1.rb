@@ -31,7 +31,7 @@ class Stack
   def pop
     return nil if @data.nil?
     head = @data
-    @data = @data.next
+    @data = @data.next_node
     return head
   end
 end
